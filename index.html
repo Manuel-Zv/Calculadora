@@ -1,35 +1,131 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Calculadora </title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<title>Calculadora Moderna</title>
+<style>
+  /* Reset and base */
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .container {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    width: 320px;
+    max-width: 95vw;
+    padding: 24px 32px;
+    user-select: none;
+  }
+  h1 {
+    text-align: center;
+    margin-bottom: 24px;
+    font-weight: 700;
+    font-size: 1.8rem;
+  }
+  label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 6px;
+    font-size: 1rem;
+  }
+  input[type=number] {
+    width: 100%;
+    padding: 10px 14px;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    font-weight: 600;
+    margin-bottom: 18px;
+    color: #333;
+  }
+  input[readonly] {
+    background: #efefef;
+    color: #333;
+    cursor: default;
+  }
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+  button {
+    flex: 1 1 45%;
+    background: #5a4fcf;
+    border: none;
+    padding: 14px 0;
+    border-radius: 12px;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.25s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  }
+  button:hover, button:focus {
+    background: #7b68ee;
+    outline: none;
+  }
+  #resultadoDisplay {
+    text-align: center;
+    font-size: 1.4rem;
+    font-weight: 700;
+    background: rgba(255,255,255,0.15);
+    border-radius: 10px;
+    padding: 16px;
+    min-height: 40px;
+    user-select: text;
+    color: #f1f1f1;
+  }
+  @media (max-width: 400px) {
+    .container {
+      width: 95vw;
+      padding: 20px;
+    }
+    button {
+      flex: 1 1 100%;
+    }
+  }
+</style>
 </head>
 <body>
 
-    <div>
-        <label> Numero Uno:</label>
-        <input type="number" name="num1" id="num1"></input>
-    </div>
+<div class="container" role="main" aria-label="Calculadora simple">
+  <h1>Calculadora</h1>
 
-    <div>
-        <label> Numero Dos:</label>
-        <input type="number" name="num2" id="num2"></input>
-    </div>
+  <label for="num1">Número Uno:</label>
+  <input type="number" id="num1" name="num1" inputmode="numeric" aria-required="true" />
 
-    <button onclick="suma()"> Suma </button>
-    <button onclick="resta()"> Resta </button>
-    <button onclick="multiplicar()"> Multiplicacion </button>
-    <button onclick="divicion()"> Divicion </button>
+  <label for="num2">Número Dos:</label>
+  <input type="number" id="num2" name="num2" inputmode="numeric" aria-required="true" />
 
-    <div>
-        <label> Resultado </label>
-        <input type="number" id="resultadoInput" readonly >
-        
-    </div>
+  <div class="buttons">
+    <button type="button" onclick="suma()" aria-label="Sumar">Suma</button>
+    <button type="button" onclick="resta()" aria-label="Restar">Resta</button>
+    <button type="button" onclick="multiplicar()" aria-label="Multiplicar">Multiplicación</button>
+    <button type="button" onclick="division()" aria-label="Dividir">División</button>
+  </div>
 
-    <div id="resultado"></div>
+  <label for="resultadoInput">Resultado:</label>
+  <input type="text" id="resultadoInput" readonly aria-live="polite" aria-atomic="true" />
 
-   <script src="script.js"></script> 
+  <div id="resultadoDisplay" aria-live="polite" aria-atomic="true" aria-label="Resultado visible"></div>
+</div>
 </body>
 </html>
+
