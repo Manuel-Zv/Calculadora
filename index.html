@@ -6,22 +6,30 @@
     <title> Calculadora </title>
 </head>
 <body>
+
     <div>
         <label> Numero Uno:</label>
-        <input type="number"></input>
+        <input type="number" name="num1" id="num1"></input>
     </div>
+
     <div>
         <label> Numero Dos:</label>
-        <input type="number"></input>
+        <input type="number" name="num2" id="num2"></input>
     </div>
-    <button> Suma </button>
-    <button> Resta </button>
-    <button> Multiplicacion </button>
-    <button> Divicion </button>
+
+    <button onclick="suma()"> Suma </button>
+    <button onclick="resta()"> Resta </button>
+    <button onclick="multiplicar()"> Multiplicacion </button>
+    <button onclick="divicion()"> Divicion </button>
 
     <div>
         <label> Resultado </label>
-        <input type="number">
+        <input type="number" id="resultadoInput" readonly >
+        
     </div>
+
+    <div id="resultado"></div>
+
+   <script src="script.js"></script> 
 </body>
 </html>
